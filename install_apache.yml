@@ -1,10 +1,16 @@
----
+--- # For writing playbook at first we need to put three dash not more
 
-- hosts: all
+- hosts: all  # We need a space after : for - you need two space
   become: true
-  tasks: 
+  tasks:
+
+
+  - name: updating repository index
+    apt: 
+       update_cache: true
+
 
   - name: install apache2 package
     apt:
       name: apache2
-
+      state: latest # It means install the lastest version of the package if need update or install 
